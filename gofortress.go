@@ -12,7 +12,7 @@ var yellow = color.New(color.FgYellow).SprintFunc()
 var red = color.New(color.FgRed).SprintFunc()
 var cyan = color.New(color.FgCyan).SprintFunc()
 
-var tSecond = time.NewTicker(time.Second)
+var tSecond = time.NewTicker(time.Second * 2)
 
 type Living struct {
 	name         string
@@ -80,8 +80,17 @@ func new_game() {
 	fmt.Printf("%s the %s %s has %s.\n", yellow(newPlayer.name), cyan(newPlayer.race), cyan(newPlayer.class), red("entered the world"))
 }
 
+func ProcessPlayerActions() {
+	fmt.Println("Player action.")
+}
+
+func ProcessNPCActions() {
+	fmt.Println("NPC action.")
+}
+
 func tick() {
-	fmt.Println("tick")
+	ProcessPlayerActions()
+	ProcessNPCActions()
 }
 
 func main() {
